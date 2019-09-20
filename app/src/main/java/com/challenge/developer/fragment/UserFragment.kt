@@ -24,8 +24,9 @@ import kotlinx.android.synthetic.main.user_activity.*
 
 class UserFragment : Fragment() {
 
-    lateinit var userViewModel: UserViewModel
-    lateinit var userRepository: UserRepository
+    private lateinit var userViewModel: UserViewModel
+    private lateinit var userRepository: UserRepository
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
     // Inflate the layout for this fragment
         setHasOptionsMenu(true)
@@ -60,10 +61,14 @@ class UserFragment : Fragment() {
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-
+      //Subscribe view model to this view
       userViewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
+
+      //Initialize repository with view model
       userRepository = UserRepository(requireContext(),userViewModel)
 
+
+      //Keyback handler like onBackPressed
       view.isFocusableInTouchMode = true
       view.requestFocus()
       view.setOnKeyListener { v, keyCode, event ->
@@ -76,6 +81,7 @@ class UserFragment : Fragment() {
 
       }
 
+      //Sign in button action
     btnSignIn.setOnClickListener(View.OnClickListener {
       val email = loginEmail.text.toString()
       val password = loginPass.text.toString()

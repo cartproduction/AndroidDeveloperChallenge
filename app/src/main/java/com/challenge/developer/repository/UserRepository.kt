@@ -20,8 +20,11 @@ class UserRepository(private var context: Context, private var viewModel: UserVi
     private var progressDialog : SweetAlertDialog
 
     init {
+
+        //Initialize api client service
         apiService = ApiClient.getClient(context)
 
+        //Alert dialog creating with context
         progressDialog = SweetAlertDialog(context, SweetAlertDialog.PROGRESS_TYPE)
         progressDialog.progressHelper.barColor = ContextCompat.getColor(context, R.color.colorAccent)
         progressDialog.titleText = context.getString(R.string.loading)
@@ -29,6 +32,9 @@ class UserRepository(private var context: Context, private var viewModel: UserVi
         progressDialog.setCancelable(false)
 
     }
+
+
+    //User login service
 
     fun login(email : String, password : String) {
 

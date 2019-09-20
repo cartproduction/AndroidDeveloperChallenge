@@ -6,6 +6,8 @@
     <string name="passworddigit">Girdiğiniz şifre en az 6 haneli olmalı</string>
     <string name="passwordempty">Şifrenizi giriniz</string>
     <string name="usernameempty">Kullanıcı adı giriniz</string>
-    <string name="login">Login</string>
+    <string name="login">Giriş</string>
     <string name="remember">Beni Hatırla</string>
+    <string name="username">Kullanıcı adı</string>
+    <string name="password">Şifre</string>
 </resources>
