@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AndroidChallenge</string>
+    <string name="loading">Loading</string>
+    <string name="usernameerror">Kullanıcı adını hatalı girdiniz</string>
+    <string name="passworderror">Şifrenizi yanlış girdiniz</string>
+    <string name="passworddigit">Girdiğiniz şifre en az 6 haneli olmalı</string>
+    <string name="passwordempty">Şifrenizi giriniz</string>
+    <string name="usernameempty">Kullanıcı adı giriniz</string>
+    <string name="login">Login</string>
+    <string name="remember">Beni Hatırla</string>
 </resources>

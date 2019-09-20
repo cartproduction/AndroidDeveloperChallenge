@@ -1,4 +1,4 @@
-package com.challenge.developer.ui.main
+package com.challenge.developer.fragment
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.challenge.developer.R
+import com.challenge.developer.viewmodel.MainViewModel
 
 class MainFragment : Fragment() {
 

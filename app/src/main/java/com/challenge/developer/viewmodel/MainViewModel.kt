@@ -1,4 +1,4 @@
-package com.challenge.developer.ui.main
+package com.challenge.developer.viewmodel
 
 import androidx.lifecycle.ViewModel
 

@@ -1,8 +1,9 @@
-package com.challenge.developer
+package com.challenge.developer.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.challenge.developer.ui.main.MainFragment
+import com.challenge.developer.R
+import com.challenge.developer.fragment.MainFragment
 
 class MainActivity : AppCompatActivity() {
 
