@@ -1,12 +1,13 @@
 package com.challenge.developer
 
 import android.app.Application
+import java.util.ArrayList
 
 class Consants : Application() {
 
     companion object {
 
-        val baseUrl = "http://kariyertechchallenge.mockable.io/"
+        const val baseUrl = "http://kariyertechchallenge.mockable.io/"
         var authenticationToken: String? = null
     }
 

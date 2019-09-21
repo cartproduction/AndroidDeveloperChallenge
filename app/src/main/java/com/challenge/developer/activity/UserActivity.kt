@@ -1,5 +1,7 @@
 package com.challenge.developer.activity
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -20,12 +22,29 @@ class UserActivity : AppCompatActivity() {
         initToolbar()
 
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.rootView, UserFragment())
-                .commitNow()
+
+            //Get remember option info if exist
+            val sharedPreference = getSharedPreferences("UserPreferences", Context.MODE_PRIVATE)
+            val rememberOption = sharedPreference.getBoolean("rememberOption", false)
+
+            if (rememberOption){
+
+                //Go to orders activity
+                val i = Intent(this@UserActivity, MainActivity::class.java)
+                startActivity(i)
+                finish()
+
+            }else{
+
+                //Go to user login
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.rootView, UserFragment())
+                    .commitNow()
+            }
         }
     }
 
+    //Set toolbar layout and initilaize to action bar
     private fun initToolbar() {
         setSupportActionBar(toolbar)
         val actionBar = supportActionBar

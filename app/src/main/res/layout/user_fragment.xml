@@ -37,6 +37,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
+            android:drawablePadding="15dp"
+            android:paddingLeft="5dp"
+            android:drawableLeft="@drawable/ic_person_black_24dp"
             android:background="@android:color/transparent"
             android:hint="@string/username"
             android:imeOptions="actionGo"
@@ -54,15 +57,16 @@
         android:background="@drawable/edittextbackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmail"
-        app:passwordToggleEnabled="true"
-        app:passwordToggleTint="@color/colorAccent">
+        app:layout_constraintTop_toBottomOf="@+id/inputEmail">
 
         <EditText
             android:id="@+id/loginPass"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
+            android:drawablePadding="15dp"
+            android:paddingLeft="5dp"
+            android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
             android:background="@android:color/transparent"
             android:hint="@string/password"
             android:imeOptions="actionDone"
@@ -82,17 +86,17 @@
         android:elevation="1dp"
         android:text="@string/login"
         android:textAllCaps="false"
-        android:textColor="@color/editextxwhite"
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/inputPass"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/remember"
-        app:layout_constraintTop_toBottomOf="@+id/sifremiunuttum"
+        app:layout_constraintTop_toBottomOf="@+id/rememberOption"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/sifremiunuttum"
+        android:id="@+id/rememberOption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/btnSignIn"

@@ -8,6 +8,7 @@ import com.github.johnpersano.supertoasts.library.Style
 import com.github.johnpersano.supertoasts.library.SuperActivityToast
 import android.os.Handler
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
@@ -24,11 +25,11 @@ import kotlinx.android.synthetic.main.user_activity.*
 
 class UserFragment : Fragment() {
 
-    private lateinit var userViewModel: UserViewModel
+    private lateinit var viewModel: UserViewModel
     private lateinit var userRepository: UserRepository
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-    // Inflate the layout for this fragment
+
         setHasOptionsMenu(true)
         var drawable = ResourcesCompat.getDrawable(
           resources,
@@ -38,9 +39,8 @@ class UserFragment : Fragment() {
         drawable = DrawableCompat.wrap(drawable!!)
         requireActivity().toolbar.navigationIcon = drawable
         requireActivity().apptitle_text.text = getString(R.string.login)
-        requireActivity().apptitle_text.visibility = View.VISIBLE
-        requireActivity().imageView18.visibility = View.GONE
 
+        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.user_fragment, container, false)
   }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -62,10 +62,10 @@ class UserFragment : Fragment() {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
       //Subscribe view model to this view
-      userViewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
+      viewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
 
       //Initialize repository with view model
-      userRepository = UserRepository(requireContext(),userViewModel)
+      userRepository = UserRepository(requireActivity() as AppCompatActivity,requireContext())
 
 
       //Keyback handler like onBackPressed
@@ -136,6 +136,7 @@ class UserFragment : Fragment() {
           InputMethodManager.RESULT_UNCHANGED_SHOWN
       )
 
+        //Subscribe view with observer
         val loginObserver = Observer<User?> { response ->
             Handler().postDelayed({
                 //The following code will execute after the 5 seconds.
@@ -155,14 +156,12 @@ class UserFragment : Fragment() {
 
         }
 
-        userViewModel.user.observe(this,loginObserver)
+        viewModel.user.observe(this,loginObserver)
 
-        userRepository.login(loginEmail.text.toString(),loginPass.text.toString())
+        userRepository.login(loginEmail.text.toString(),loginPass.text.toString(),rememberOption.isEnabled,viewModel)
 
 
     })
-
-    sifremiunuttum.setOnClickListener {}
 
   }
 
