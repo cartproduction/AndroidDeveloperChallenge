@@ -1,11 +1,14 @@
 package com.challenge.developer.fragment
 
+import android.content.Context
+import android.content.Intent
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
@@ -14,6 +17,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.challenge.developer.R
+import com.challenge.developer.activity.UserActivity
 import com.challenge.developer.adapter.OrdersRecyclerViewAdapter
 import com.challenge.developer.model.Product
 import com.challenge.developer.repository.UserRepository
@@ -82,6 +86,27 @@ class MainFragment : Fragment() {
 
         //Call the get orders service
         userRepository.getOrders(viewModel)
+
+        logoutButton.setOnClickListener {
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setMessage(getString(R.string.logouttext))
+            builder.setPositiveButton(getString(R.string.confirm)) { dialog, which -> dialog.dismiss()
+
+                val sharedPreference = requireActivity().getSharedPreferences("UserPreferences", Context.MODE_PRIVATE)
+                val editor = sharedPreference.edit()
+                editor.putBoolean("rememberOption",false)
+                editor.apply()
+
+                val i = Intent(requireActivity(), UserActivity::class.java)
+                startActivity(i)
+                requireActivity().finish()
+            }
+            builder.setNegativeButton(getString(R.string.cancel)) { dialog, which -> dialog.dismiss()  }
+
+            // create and show the alert dialog
+            val dialog = builder.create()
+            dialog.show()
+        }
 
 
     }

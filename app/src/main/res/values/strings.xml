@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidChallenge</string>
+    <string name="app_name">Challenger</string>
     <string name="loading">Loading</string>
     <string name="usernameerror">Kullanıcı adını hatalı girdiniz</string>
     <string name="passworderror">Şifrenizi yanlış girdiniz</string>
@@ -11,4 +11,9 @@
     <string name="username">Kullanıcı adı</string>
     <string name="password">Şifre</string>
     <string name="market">Marketim</string>
+    <string name="logout">Çıkış Yap</string>
+    <string name="orders">Siparişlerim</string>
+    <string name="logouttext">Çıkış yapmak istiyor musunuz?</string>
+    <string name="confirm">Evet</string>
+    <string name="cancel">Hayır</string>
 </resources>

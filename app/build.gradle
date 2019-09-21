@@ -45,6 +45,7 @@ dependencies {
     implementation 'pro.appus:zoom-splash:1.0.0'
     implementation 'com.lmntrx.android.library.livin.missme:missme:0.1.5'
     implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.github.niniloveyou:StateButton:v1.0.0'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     kapt "com.google.dagger:dagger-compiler:2.16"
     annotationProcessor "android.arch.lifecycle:compiler:1.1.0"

@@ -158,7 +158,7 @@ class UserFragment : Fragment() {
 
         viewModel.user.observe(this,loginObserver)
 
-        userRepository.login(loginEmail.text.toString(),loginPass.text.toString(),rememberOption.isEnabled,viewModel)
+        userRepository.login(loginEmail.text.toString(),loginPass.text.toString(),remember.isChecked,viewModel)
 
 
     })

@@ -59,11 +59,16 @@ class UserRepository(activity: AppCompatActivity, private var context: Context) 
 
                         viewModel.user.value = user
 
-                        val sharedPreference = context.getSharedPreferences("UserPreferences", Context.MODE_PRIVATE)
-                        val editor = sharedPreference.edit()
+                        if (rememberOption) {
 
-                        editor.putBoolean("rememberOption", rememberOption)
-                        editor.apply()
+                            val sharedPreference = context.getSharedPreferences(
+                                "UserPreferences",
+                                Context.MODE_PRIVATE
+                            )
+                            val editor = sharedPreference.edit()
+                            editor.putBoolean("rememberOption", rememberOption)
+                            editor.apply()
+                        }
 
                     }else{
 

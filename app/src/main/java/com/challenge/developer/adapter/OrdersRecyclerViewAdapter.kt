@@ -2,12 +2,10 @@ package com.challenge.developer.adapter
 
 import android.animation.ValueAnimator
 import android.graphics.Color
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffColorFilter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.challenge.developer.databinding.ItemproductBinding
+import com.challenge.developer.databinding.ItemOrderBinding
 import com.challenge.developer.model.Product
 import java.text.DateFormatSymbols
 import java.text.DecimalFormat
@@ -21,13 +19,13 @@ class OrdersRecyclerViewAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         //inflate the layout file
-        val binding = ItemproductBinding.inflate(LayoutInflater.from(parent.context))
+        val binding = ItemOrderBinding.inflate(LayoutInflater.from(parent.context))
         this.binding = binding!!
 
         return ViewHolder(binding)
     }
 
-    private lateinit var binding: ItemproductBinding
+    private lateinit var binding: ItemOrderBinding
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(ordersList[position])
@@ -35,7 +33,7 @@ class OrdersRecyclerViewAdapter(
 
     override fun getItemCount(): Int = ordersList.size
 
-    inner class ViewHolder(private val binding: ItemproductBinding) : RecyclerView.ViewHolder(binding.root){
+    inner class ViewHolder(private val binding: ItemOrderBinding) : RecyclerView.ViewHolder(binding.root){
         lateinit var item: Product
         fun bind(item: Product) {
             this.item = item
@@ -60,6 +58,8 @@ class OrdersRecyclerViewAdapter(
             }
 
             binding.root.setOnClickListener {
+
+                expanded = binding.detailPanel.layoutParams.height != 0
 
                 if (!expanded) {
 
